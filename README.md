@@ -51,10 +51,13 @@ borg create \
     --exclude '/Users/sirodoht/.npm' \
     --exclude '/Users/sirodoht/.vscode' \
     --exclude '/Users/sirodoht/.vim' \
+    --exclude '/Users/sirodoht/.rustup' \
     --exclude '/Users/sirodoht/.cargo' \
+    --exclude '/Users/sirodoht/.vagrant.d' \
     --exclude '/Users/sirodoht/.zoomus' \
     --exclude '/Users/sirodoht/.cache' \
     --exclude '/Users/sirodoht/.Trash' \
+    --exclude '/Users/sirodoht/VirtualBox VMs' \
     --exclude '/Users/sirodoht/Library' \
     --exclude '/Users/sirodoht/Desktop' \
     --exclude '/Users/sirodoht/Downloads' \
