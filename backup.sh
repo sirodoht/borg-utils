@@ -26,23 +26,24 @@ info "Starting backup"
     --exclude '*.tmp' \
     --exclude '*.DS_Store' \
     --exclude '*.pyc' \
-    --exclude '/Users/sirodoht/borg/logs' \
-    --exclude '/Users/sirodoht/Projects/*/venv' \
-    --exclude '/Users/sirodoht/Projects/*/node_modules' \
+	--exclude '/Users/sirodoht/Code/*/venv' \
+    --exclude '/Users/sirodoht/Code/*/node_modules' \
+    --exclude '/Users/sirodoht/Code/*/.bundle' \
     --exclude '/Users/sirodoht/.rbenv' \
     --exclude '/Users/sirodoht/.gem' \
     --exclude '/Users/sirodoht/.npm' \
-    --exclude '/Users/sirodoht/.vscode' \
-    --exclude '/Users/sirodoht/.vim' \
+    --exclude '/Users/sirodoht/.go' \
+    --exclude '/Users/sirodoht/.rustup' \
     --exclude '/Users/sirodoht/.cargo' \
+    --exclude '/Users/sirodoht/.vagrant.d' \
     --exclude '/Users/sirodoht/.zoomus' \
     --exclude '/Users/sirodoht/.cache' \
     --exclude '/Users/sirodoht/.Trash' \
+    --exclude '/Users/sirodoht/VirtualBox VMs' \
     --exclude '/Users/sirodoht/Library' \
     --exclude '/Users/sirodoht/Desktop' \
     --exclude '/Users/sirodoht/Downloads' \
     --exclude '/Users/sirodoht/Movies' \
-    --exclude '/Users/sirodoht/Music' \
     ::'{hostname}-{now}' \
     /Users/sirodoht 2>> "/Users/sirodoht/borg/logs/$(date '+%Y-%m-%d-%HH')"
 
