@@ -10,7 +10,7 @@ info() {
 trap 'echo $(date) Backup interrupted >&2; exit 2' INT TERM
 
 # Signal healthchecks.io check start
-curl --retry 3 https://hc-ping.com/2384d09c/start
+curl -fsS -m 10 --retry 5 -o /dev/null https://hc-ping.com/2384d09c/start
 
 # Backup new data op
 info "Starting backup"
@@ -29,6 +29,7 @@ info "Starting backup"
 	--exclude '/Users/sirodoht/Code/*/venv' \
     --exclude '/Users/sirodoht/Code/*/node_modules' \
     --exclude '/Users/sirodoht/Code/*/.bundle' \
+    --exclude '/Users/sirodoht/.vscode' \
     --exclude '/Users/sirodoht/.rbenv' \
     --exclude '/Users/sirodoht/.gem' \
     --exclude '/Users/sirodoht/.npm' \
@@ -36,9 +37,10 @@ info "Starting backup"
     --exclude '/Users/sirodoht/.rustup' \
     --exclude '/Users/sirodoht/.cargo' \
     --exclude '/Users/sirodoht/.vagrant.d' \
-    --exclude '/Users/sirodoht/.zoomus' \
+    --exclude '/Users/sirodoht/.ssb' \
     --exclude '/Users/sirodoht/.cache' \
     --exclude '/Users/sirodoht/.Trash' \
+    --exclude '/Users/sirodoht/Wikipedia' \
     --exclude '/Users/sirodoht/VirtualBox VMs' \
     --exclude '/Users/sirodoht/Library' \
     --exclude '/Users/sirodoht/Desktop' \
@@ -70,7 +72,7 @@ info "Check repository"
     --show-rc 2>> "/Users/sirodoht/borg/logs/$(date '+%Y-%m-%d-%HH')"
 
 # Signal healthchecks.io check end
-curl --retry 3 https://hc-ping.com/2384d09c
+curl -fsS -m 10 --retry 5 -o /dev/null https://hc-ping.com/2384d09c
 
 # Return with highest exit code
 global_exit=$(( backup_exit > prune_exit ? backup_exit : prune_exit ))
