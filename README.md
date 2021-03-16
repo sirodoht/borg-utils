@@ -17,10 +17,10 @@ ssh -t -i ~/.ssh/id_rsa user@sirodoht.rsync.net passwd
 ## Mount remote borg repository
 
 ```sh
-mkdir ~/Downloads/mountpoint
-borg mount user@sirodoht.rsync.net:borg-repo::luminol-2019-05-31T20:00:01 /Users/sirodoht/Downloads/mountpoint
-borg mount user@sirodoht.rsync.net:borg-repo /Users/sirodoht/Downloads/mountpoint
-borg umount /Users/sirodoht/Downloads/mountpoint
+mkdir ~/mountpoint
+borg mount user@sirodoht.rsync.net:borg-repo::luminol-2019-05-31T20:00:01 /Users/sirodoht/mountpoint
+borg mount user@sirodoht.rsync.net:borg-repo /Users/sirodoht/mountpoint
+borg umount /Users/sirodoht/mountpoint
 ```
 
 ## Init repo
